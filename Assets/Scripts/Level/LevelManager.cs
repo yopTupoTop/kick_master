@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+
 public class LevelManager : MonoBehaviour
 {
     [SerializeField] private int roomCount;
@@ -11,7 +12,7 @@ public class LevelManager : MonoBehaviour
 
     private RoomSO startRoom;
 
-    private void Start()
+   /* private void Start()
     {
         startRoom = Instantiate(roomPrefab);
         roomCount = Random.Range(2, 6);
@@ -28,5 +29,5 @@ public class LevelManager : MonoBehaviour
     {
 
     }
-
+   */
 }

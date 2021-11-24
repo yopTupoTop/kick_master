@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52db0dd05b3cdad49835ef9265bbab18, type: 3}
   m_Name: FirstRoom
   m_EditorClassIdentifier: 
+  roomPrefab: {fileID: 768282672280396604, guid: 0c1dbe2295e725d45ab989b6f940be17, type: 3}

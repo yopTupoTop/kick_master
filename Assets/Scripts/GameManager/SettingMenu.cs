@@ -12,5 +12,13 @@ public class SettingMenu : MonoBehaviour
         audioMixer.SetFloat("volume", Mathf.Log10(volume) * 20);
     }
 
+    public void SetQuality(int qualityIndex)
+    {
+        QualitySettings.SetQualityLevel(qualityIndex);
+    }
 
+    public void Sound()
+    {
+        AudioListener.pause = !AudioListener.pause;
+    }
 }
