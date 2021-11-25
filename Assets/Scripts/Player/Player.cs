@@ -11,6 +11,9 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rigidbody.velocity = new Vector3(joystick.Horizontal * moveSpeed, rigidbody.velocity.y, joystick.Vertical * moveSpeed);
+       transform.Translate(joystick.Horizontal * moveSpeed * Time.fixedDeltaTime, 0, joystick.Vertical * moveSpeed * Time.fixedDeltaTime);
+
+        if (joystick.Horizontal != 0 || joystick.Vertical != 0)
+            transform.rotation = Quaternion.LookRotation(rigidbody.velocity);
     }
 }
