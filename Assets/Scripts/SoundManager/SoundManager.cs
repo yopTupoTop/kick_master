@@ -4,62 +4,35 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    private static SoundManager _instance;
+    public static SoundManager Instance;
 
-    public static SoundManager Instance => _instance;
+    [SerializeField] private AudioSource _musicSource;
 
     private void Awake()
     {
-        if (_instance != null)
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
         {
             Destroy(gameObject);
-            return;
         }
-        _instance = this;
-        DontDestroyOnLoad(gameObject);
     }
-    /*
-    private void PlaySoundInternal(string soundName, bool pausable)
+
+    public void PlaySound(AudioClip clip)
     {
-        if (string.IsNullOrEmpty(soundName))
-        {
-            Debug.Log("Sound null or empty");
-            return;
-        }
 
-        int sameCountGuard = 0;
-        foreach (AudioSourse audioSource in _sounds)
-        {
-            if (audioSource.clip.name == soundName)
-                sameCountGuard++;
-        }
-
-        if (_sounds.Count > 16)
-        {
-            Debug.Log("To much sounds");
-            return;
-        }
-        StartCoroutine(PlaySoundInternalSoon(soundName, pausable));
     }
 
-    IEnumerable PlaySoundInternalSoon(string soundName, bool pausable)
+    public void ChangeMasterVolume(float value)
     {
-        ResourceRequest request = LoadClipAsync("Sounds/" + soundName);
-        while (!request.isDone)
-        {
-            yield return null;
-        }
-
-        AudioClip soundClip = (AudioClip)request.asset;
-        if (null == soundClip)
-            Debug.Log("Sound not loaded: " + soundName);
+        AudioListener.volume = value;
     }
 
-    GameObject sound = (GameObject)Instantiate(soundPrefab);
-    sound.transform.parent = transform;
-
-    AudioSource soundSource = sound.GetComponent<AudioSource>();
-    soundSource.mute = _mutedSound;
-    soundSource.volume = _volumeSound* DefaultSoumdVolume;
-    */
+    public void ToggleSound()
+    {
+        _musicSource.mute = !_musicSource.mute;
+    }
 }
