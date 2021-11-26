@@ -1,26 +1,45 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class MoneyManager : MonoBehaviour
+namespace Money
 {
-    public int money;
-    public Text moneyText;
+    public class MoneyManager : MonoBehaviour
+    {
+        private static MoneyManager _instance;
+        public static MoneyManager Instance => _instance;
+        private int _count = 100;
 
-    private void Start()
-    {
-        money = PlayerPrefs.GetInt("Money");
-        moneyText.text = money.ToString();
-        PlayerPrefs.SetInt("Money", money);
-    }
+        public int Count
+        {
+            get => _count;
+            private set
+            {
+                if (value < 0) _count = 0;
+                else _count = value;
+            }
+        }
+        private void Awake()
+        {
+            _instance = this;
+        }
 
-    private void Update()
-    {
-        
-    }
-    public void GetMoney()
-    {
-      
+        public void AddMoney(int count)
+        {
+
+            Debug.Log("ADD MONEY");
+            Count += count;
+        }
+        public int GetMoney(int count)
+        {
+            return _count;
+        }
+        public bool CheckMoney(int count)
+        {
+            return count >= Count;
+        }
+        public void RemoveMoney(int count)
+        {
+            Count -= count;
+        }
     }
 }

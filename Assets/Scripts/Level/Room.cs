@@ -1,18 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class Room : MonoBehaviour
+namespace Level
 {
-    // Start is called before the first frame update
-    void Start()
+    public class Room : MonoBehaviour
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        [Required] public Transform NextRoomTransform;
     }
 }

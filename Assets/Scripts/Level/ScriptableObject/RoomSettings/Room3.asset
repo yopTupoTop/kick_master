@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e95a37e0eaa8a0e47b9315e62f741ce3, type: 3}
+  m_Name: Room3
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: b42910130a597ca4a86fe4f68309027a, type: 2}
+    - {fileID: 11400000, guid: 960ca05db6c05b54ea29654159998ac8, type: 2}
+    - {fileID: 11400000}
+    - {fileID: 11400000, guid: cdcbc296d4f8f954e96dc1f6caf97489, type: 2}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: NextRooms
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[Level.ScriptableObject.NextRoom,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 4
+    - Name: 
+      Entry: 7
+      Data: 1|Level.ScriptableObject.NextRoom, Assembly-CSharp
+    - Name: Key
+      Entry: 10
+      Data: 0
+    - Name: Value
+      Entry: 3
+      Data: 10
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 2|Level.ScriptableObject.NextRoom, Assembly-CSharp
+    - Name: Key
+      Entry: 10
+      Data: 1
+    - Name: Value
+      Entry: 3
+      Data: 10
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 3|Level.ScriptableObject.NextRoom, Assembly-CSharp
+    - Name: Key
+      Entry: 10
+      Data: 2
+    - Name: Value
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 4|Level.ScriptableObject.NextRoom, Assembly-CSharp
+    - Name: Key
+      Entry: 10
+      Data: 3
+    - Name: Value
+      Entry: 3
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  Prefab: {fileID: 5963096916241901239, guid: cc90f209aacf4034594f144720d86478, type: 3}
+  NextRooms:
+  - Key: {fileID: 11400000, guid: b42910130a597ca4a86fe4f68309027a, type: 2}
+    Value: 10
+  - Key: {fileID: 11400000, guid: 960ca05db6c05b54ea29654159998ac8, type: 2}
+    Value: 10
+  - Key: {fileID: 11400000}
+    Value: 1
+  - Key: {fileID: 11400000, guid: cdcbc296d4f8f954e96dc1f6caf97489, type: 2}
+    Value: 5
