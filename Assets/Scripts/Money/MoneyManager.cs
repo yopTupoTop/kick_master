@@ -1,14 +1,20 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Money
 {
     public class MoneyManager : MonoBehaviour
     {
+        [SerializeField] private Text _moneyText;
         private static MoneyManager _instance;
         public static MoneyManager Instance => _instance;
         private int _count = 100;
 
+        private void Start()
+        {
+            _moneyText.text = _count.ToString();
+        }
         public int Count
         {
             get => _count;
