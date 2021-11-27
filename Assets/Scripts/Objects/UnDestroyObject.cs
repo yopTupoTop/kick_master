@@ -22,14 +22,14 @@ public class UnDestroyObject : SpawnObject
 
     private void Update()
     {
-        if (Rigidbody.velocity.magnitude < MinSpeed)
-            IsFlying = true;
+        IsFlying = (Rigidbody.velocity.magnitude > MinSpeed);
+            
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         HealthController healthController = collision.gameObject.GetComponent<HealthController>();
-        if (healthController)
+        if (healthController && IsFlying)
             healthController.Damage(Damage);
     }
 }

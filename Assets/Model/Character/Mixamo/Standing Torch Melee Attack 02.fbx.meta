@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: f10805c1069eafb41aac358a567a7434
 ModelImporter:
-  serializedVersion: 20200
+  serializedVersion: 21100
   internalIDToNameTable:
   - first:
       74: -203655887218126122
@@ -58,7 +58,14 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.33652008
+        functionName: IsAttacked
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 78604e2c9305a81469d699875beb644b, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}

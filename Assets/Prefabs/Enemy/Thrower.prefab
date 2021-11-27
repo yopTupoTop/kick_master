@@ -938,7 +938,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1854328050071119250}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.083, y: -0.023, z: 0}
+  m_LocalPosition: {x: 0.087, y: -0.326, z: -0.018}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4432482885896982995}
@@ -1460,10 +1460,11 @@ MonoBehaviour:
   OnAttack: OnAttack
   Throw: Throw
   SpawnObject: {fileID: 4312760850093521494}
-  AttackRadius: 7
+  AttackRadius: 4
   spawnObjects:
   - Key: {fileID: 2472886048995039520, guid: 82b93f923dc618d49a80c782ffb23825, type: 3}
     Value: 1
+  Force: 300
 --- !u!1 &3051353127450085230
 GameObject:
   m_ObjectHideFlags: 0

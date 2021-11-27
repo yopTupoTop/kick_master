@@ -73,7 +73,8 @@ namespace Player
 
         public void Death()
         {
-
+            OnDie?.Invoke();
+            Debug.Log("Dead");
         }
     }
 }

@@ -112,10 +112,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isEnable: 1
   Rigidbody: {fileID: 331170717258328280}
-  Force: 0
+  Force: 1
   IsFlying: 0
-  MinSpeed: 0
-  Damage: 0
+  MinSpeed: 1
+  Damage: 1
 --- !u!54 &331170717258328280
 Rigidbody:
   m_ObjectHideFlags: 0

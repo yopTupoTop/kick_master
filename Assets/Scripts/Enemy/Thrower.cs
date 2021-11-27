@@ -11,6 +11,8 @@ public class Thrower : Enemy
     public Transform SpawnObject;
     public float AttackRadius;
     [OdinSerialize] public List<ThrowingObject> spawnObjects;
+    //[SerializeField] public UnDestroyObject ThrowingObject;
+    public float Force;
     public override void Attack()
     {
         if (Vector3.Distance(Player.Player.Instance.transform.position, transform.position) <= AttackRadius)
@@ -19,13 +21,23 @@ public class Thrower : Enemy
         }
 
     }
-
+    public override void Update()
+    {
+        transform.LookAt(GetZVector(Player.Player.Instance.transform.position, transform.position.y));
+        base.Update();
+    }
+    public Vector3 GetZVector(Vector3 pos, float y)
+    {
+        return new Vector3(pos.x, y, pos.z);
+    }
     public void Throwing()
     {
-
+        Spawn((Player.Player.Instance.transform.position - SpawnObject.position).normalized);
+        //Debug.DrawRay(SpawnObject.position, Player.Player.Instance.transform.position - SpawnObject.position, Color.red);
+        //Debug.LogError("Test");
     }
 
-    public UnDestroyObject GetRoomSO(List<ThrowingObject> spawnObjects)
+    public UnDestroyObject GetThrowingObject(List<ThrowingObject> spawnObjects)
     {
         int maxCount = 0;
         foreach (var spawnObject in spawnObjects)
@@ -49,6 +61,13 @@ public class Thrower : Enemy
         Debug.LogError($"Key not found");
 
         return null;
+    }
+
+    private void Spawn(Vector3 force)
+    {
+        UnDestroyObject throwing = GetThrowingObject(spawnObjects);
+        UnDestroyObject obj = Instantiate(throwing, SpawnObject.position, Quaternion.identity);
+        obj.Kick(Force * force);
     }
 
    
