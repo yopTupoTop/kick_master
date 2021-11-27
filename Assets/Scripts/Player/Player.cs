@@ -13,6 +13,7 @@ namespace Player
         public static Player Instance => _instance;
         public event ReturnVoid OnEnd;
         public event ReturnVoid OnDie;
+        public HealthController healthController;
 
         [Header("Force")]
         public Transform pointToForce;
@@ -30,6 +31,7 @@ namespace Player
         private void Awake()
         {
             _instance = this;
+            healthController.OnDead.AddListener(Death);
         }
 
         public void EndGame()
@@ -67,6 +69,11 @@ namespace Player
                     spawnObject.Kick(transform.forward * (Force * Vector3.Distance(pointToForce.position, collider1.transform.position)));
                 }
             }
+        }
+
+        public void Death()
+        {
+
         }
     }
 }

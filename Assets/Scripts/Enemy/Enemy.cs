@@ -7,6 +7,10 @@ public abstract class Enemy : MonoBehaviour
     public Animator Animator;
     public float Radius;
     private bool _isAttack = false;
+
+    [SerializeField] protected string Walk;
+    [SerializeField] protected string OnAttack;
+    [SerializeField] protected string Throw;
     public void Update()
     {
         if (Vector3.Distance(transform.position, Player.Player.Instance.transform.position) < Radius)

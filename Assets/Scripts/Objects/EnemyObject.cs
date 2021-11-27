@@ -11,6 +11,7 @@ namespace Objects
         public Animator Animator;
         [Range(0,1f)]public float MinForce, MaxForce;
         public float PrefixForse = 0.5f;
+        public Vector3 Force;
 
         private void Awake()
         {
@@ -31,6 +32,11 @@ namespace Objects
                 rig.AddForce(force * (Random.Range(MinForce, MaxForce) * PrefixForse));
                 rig.GetComponent<SpawnObject>().isEnable = true;
             }
+        }
+
+        public void Death()
+        {
+            Kick(Force);
         }
     }
 }

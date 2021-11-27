@@ -1873,18 +1873,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1699377894}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &706637552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3130,7 +3118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a850086ee451724aa951e65a1804132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moneyText: {fileID: 0}
+  _moneyText: {fileID: 1084873831}
 --- !u!4 &1328097700
 Transform:
   m_ObjectHideFlags: 0
@@ -3414,6 +3402,7 @@ GameObject:
   - component: {fileID: 1524863460}
   - component: {fileID: 1524863459}
   - component: {fileID: 1524863458}
+  - component: {fileID: 1524863461}
   m_Layer: 5
   m_Name: FirstLegButton
   m_TagString: Untagged
@@ -3485,8 +3474,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 520774908}
-        m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
+      - m_Target: {fileID: 1524863461}
+        m_TargetAssemblyTypeName: ItemManager, Assembly-CSharp
         m_MethodName: BuyItem
         m_Mode: 1
         m_Arguments:
@@ -3535,6 +3524,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1524863456}
   m_CullTransparentMesh: 1
+--- !u!114 &1524863461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1524863456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a3bd7783d061bf41bfa237cae5713b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shopManager: {fileID: 520774908}
+  nameItem: FirstLeg
+  priceItem: 100
+  textItem: {fileID: 1251251539}
+  isBuy: 0
 --- !u!1 &1559295817
 GameObject:
   m_ObjectHideFlags: 0
@@ -3673,6 +3679,7 @@ GameObject:
   - component: {fileID: 1644827582}
   - component: {fileID: 1644827581}
   - component: {fileID: 1644827580}
+  - component: {fileID: 1644827583}
   m_Layer: 5
   m_Name: SecondLegButton
   m_TagString: Untagged
@@ -3743,7 +3750,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1644827581}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1644827583}
+        m_TargetAssemblyTypeName: ItemManager, Assembly-CSharp
+        m_MethodName: BuyItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1644827581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3782,6 +3801,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1644827578}
   m_CullTransparentMesh: 1
+--- !u!114 &1644827583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1644827578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a3bd7783d061bf41bfa237cae5713b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shopManager: {fileID: 520774908}
+  nameItem: SecondLeg
+  priceItem: 200
+  textItem: {fileID: 1928007151}
+  isBuy: 0
 --- !u!1 &1685301094
 GameObject:
   m_ObjectHideFlags: 0
@@ -4014,7 +4050,6 @@ GameObject:
   - component: {fileID: 1699377895}
   - component: {fileID: 1699377897}
   - component: {fileID: 1699377896}
-  - component: {fileID: 1699377898}
   m_Layer: 5
   m_Name: GameManager
   m_TagString: Untagged
@@ -4082,21 +4117,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1699377894}
   m_CullTransparentMesh: 1
---- !u!114 &1699377898
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1699377894}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4f0fbe6e30c0e545925a6f371ae3e76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LevelManager: {fileID: 2025575687}
-  Player: {fileID: 2021802638}
-  MoneyManager: {fileID: 1084873830}
 --- !u!1 &1704033686
 GameObject:
   m_ObjectHideFlags: 0
@@ -5035,6 +5055,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floating Joystick
       objectReference: {fileID: 0}
+    - target: {fileID: 8170153791668043269, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8170153791961219456, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
       propertyPath: m_SizeDelta.x
       value: 30
@@ -5419,7 +5443,7 @@ MonoBehaviour:
     Value: 10
   MinCount: 2
   MaxCount: 5
-  StartRoom: {fileID: 0}
+  StartRoom: {fileID: 2167724054286538354, guid: 663d3a1762a044e4fb62fcd170f45cbc, type: 3}
   EndRoomPrefab: {fileID: 6784289425807165254, guid: bbd913c29e636b74da4247d0a3c4cbea, type: 3}
 --- !u!4 &2025575688
 Transform:
