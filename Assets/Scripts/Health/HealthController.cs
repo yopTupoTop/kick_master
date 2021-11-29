@@ -20,4 +20,10 @@ public class HealthController : MonoBehaviour
         }
 
     }
+
+    public static void HealthRecovery(int Health)
+    {
+        Health += 3;
+    }
+
 }

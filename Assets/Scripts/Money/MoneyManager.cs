@@ -6,14 +6,22 @@ namespace Money
 {
     public class MoneyManager : MonoBehaviour
     {
-        [SerializeField] private Text _moneyText;
+        public Text Money;
         private static MoneyManager _instance;
         public static MoneyManager Instance => _instance;
         private int _count = 0;
+        public delegate void ReturnVoid();
+        public event ReturnVoid OnChange;
 
         private void Start()
         {
-            _moneyText.text = _count.ToString();
+            Money.text = Count.ToString();
+        }
+        public void Init(int money)
+        {
+            //Money.text = _count.ToString();
+            Count = money;
+            _instance = this;
         }
         public int Count
         {
@@ -24,20 +32,14 @@ namespace Money
                 else _count = value;
             }
         }
-        private void Awake()
-        {
-            _instance = this;
-        }
-
         public void AddMoney(int count)
         {
-
-            Debug.Log("ADD MONEY");
             Count += count;
+            OnChange?.Invoke();
         }
         public int GetMoney(int count)
         {
-            return _count;
+            return Count;
         }
         public bool CheckMoney(int count)
         {
