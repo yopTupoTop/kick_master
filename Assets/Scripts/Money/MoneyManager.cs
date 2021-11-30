@@ -6,16 +6,16 @@ namespace Money
 {
     public class MoneyManager : MonoBehaviour
     {
-        public Text Money;
+        //public Text Money;
         private static MoneyManager _instance;
         public static MoneyManager Instance => _instance;
-        private int _count = 0;
+        private int _count = 200;
         public delegate void ReturnVoid();
         public event ReturnVoid OnChange;
 
         private void Start()
         {
-            Money.text = Count.ToString();
+            //Money.text = Count.ToString();
         }
         public void Init(int money)
         {
@@ -48,6 +48,7 @@ namespace Money
         public void RemoveMoney(int count)
         {
             Count -= count;
+            OnChange?.Invoke();
         }
     }
 }

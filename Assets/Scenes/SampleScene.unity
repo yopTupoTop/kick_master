@@ -481,8 +481,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1328097700}
-  m_Father: {fileID: 1116493047}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &191610868
 MonoBehaviour:
@@ -502,7 +502,7 @@ MonoBehaviour:
   OnDeath:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 619699160}
+      - m_Target: {fileID: 896106336}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -526,6 +526,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  nextRoomPrefab: {fileID: -7227751897820317914, guid: 0d0cbad1f4d0cef46a64745206750146, type: 3}
   ContinueButton: {fileID: 1663884489}
 --- !u!1 &218833311
 GameObject:
@@ -1485,7 +1486,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8170153791668043265, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
   m_PrefabInstance: {fileID: 1992498068}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 619699160}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a47f546fc70ec8428172694e78e4288, type: 3}
@@ -1570,11 +1571,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 596042760}
   m_CullTransparentMesh: 1
---- !u!1 &619699160 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8170153791668043269, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
-  m_PrefabInstance: {fileID: 1992498068}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &635288023
 GameObject:
   m_ObjectHideFlags: 0
@@ -2125,18 +2121,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1699377894}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 191610868}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: Restart
@@ -2467,6 +2451,7 @@ GameObject:
   - component: {fileID: 1084873829}
   - component: {fileID: 1084873832}
   - component: {fileID: 1084873831}
+  - component: {fileID: 1084873830}
   m_Layer: 5
   m_Name: Money
   m_TagString: Untagged
@@ -2493,6 +2478,20 @@ RectTransform:
   m_AnchoredPosition: {x: 7.7628, y: 238}
   m_SizeDelta: {x: 267.065, y: 64.639}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1084873830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1084873828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a80815dba331a342a152da3e1921dab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoneyText: {fileID: 1084873831}
+  MoneyManager: {fileID: 1328097699}
 --- !u!114 &1084873831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2597,8 +2596,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 191610867}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3403,7 +3401,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a850086ee451724aa951e65a1804132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Money: {fileID: 1084873831}
 --- !u!4 &1328097700
 Transform:
   m_ObjectHideFlags: 0

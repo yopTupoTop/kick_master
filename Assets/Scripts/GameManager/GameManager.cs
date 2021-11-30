@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public Player.Player Player;
     public MoneyManager MoneyManager;
     public UnityEvent OnDeath;
+    public Room nextRoomPrefab;
 
     [SerializeField] private Button ContinueButton;
     private int health;
@@ -28,14 +29,17 @@ public class GameManager : MonoBehaviour
     private void PlayerOnOnEnd()
     {
         MoneyManager.AddMoney(LevelManager.Count * 25);
+        Debug.Log("OnEnd");
         
     }
 
     private void PlayerDeath()
     {
-        PlayerOnOnEnd();
+        //PlayerOnOnEnd();
         OnDeath?.Invoke();
-        //Player.Death();
+        ContinueButton.GetComponent<Button>().interactable = MoneyManager.Count >= 200;
+        Debug.Log($"Death {MoneyManager.Count} >= 200 = {MoneyManager.Count >= 200}/n {ContinueButton.GetComponent<Button>().interactable}");
+
     }
 
     public void Restart()
@@ -45,23 +49,20 @@ public class GameManager : MonoBehaviour
 
     public void Continue()
     {
+        
         if (MoneyManager.Count >= 200)
         {
-            //ContinueButton = GetComponent<Button>();
+
             ContinueButton.GetComponent<Button>().interactable = true;
+            //LevelManager.Instantiate(nextRoomPrefab);
             HealthController.HealthRecovery(health);
+
         }
 
-        else
-        {
-            //ContinueButton = GetComponent<Button>();
-            ContinueButton.GetComponent<Button>().interactable = false;
-            Debug.Log("Not enough money");
-        }
     }
 
 
-    // Update is called once per frame
+
     void Update()
     {
         

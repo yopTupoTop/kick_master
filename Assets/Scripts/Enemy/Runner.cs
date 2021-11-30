@@ -21,11 +21,11 @@ public class Runner : Enemy
         {
             Animator.SetBool(OnAttack, false);
             Animator.SetBool(Walk, true);
-            transform.LookAt(GetZVector(Player.Player.Instance.transform.position, transform.position.y));
+            transform.LookAt(GetYVector(Player.Player.Instance.transform.position, transform.position.y));
         }
     }
 
-    public Vector3 GetZVector(Vector3 pos, float y)
+    public Vector3 GetYVector(Vector3 pos, float y)
     {
         return new Vector3(pos.x, y, pos.z);
     }

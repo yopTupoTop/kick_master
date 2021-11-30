@@ -51,9 +51,8 @@ namespace Player
             else
             {
                 isMove = true;
-                Rigidbody.velocity = new Vector3(0, 0, 1);
-                Rigidbody.velocity = (transform.forward * (Joystick.Vertical * MoveSpeed)  +
-                                      transform.right * (Joystick.Horizontal * MoveSpeed));
+                Rigidbody.velocity = GetYVector(transform.forward * (Joystick.Vertical * MoveSpeed)  +
+                                      transform.right * (Joystick.Horizontal * MoveSpeed), Rigidbody.velocity.y);
             }
         }
         void Kick()
@@ -75,6 +74,11 @@ namespace Player
         {
             OnDie?.Invoke();
             Debug.Log("Dead");
+        }
+
+        public Vector3 GetYVector(Vector3 pos, float y)
+        {
+            return new Vector3(pos.x, y, pos.z);
         }
     }
 }
