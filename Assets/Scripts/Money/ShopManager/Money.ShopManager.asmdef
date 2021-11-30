@@ -1,0 +1,17 @@
+{
+    "name": "Money.ShopManager",
+    "rootNamespace": "",
+    "references": [
+        "GUID:4f67475767a23b747880eca71b85eecd",
+        "GUID:c2b15cf70ec16cc488b96c0f5024c65d"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

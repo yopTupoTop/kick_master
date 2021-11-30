@@ -6,12 +6,12 @@ namespace Money
 {
     public class MoneyManager : MonoBehaviour
     {
-        //public Text Money;
         private static MoneyManager _instance;
         public static MoneyManager Instance => _instance;
-        private int _count = 200;
+        private int _count = 0;
         public delegate void ReturnVoid();
         public event ReturnVoid OnChange;
+        //public PlayerPrefsSLM<> PlayerPrefsSLM;
 
         private void Start()
         {
@@ -19,7 +19,6 @@ namespace Money
         }
         public void Init(int money)
         {
-            //Money.text = _count.ToString();
             Count = money;
             _instance = this;
         }

@@ -24,7 +24,6 @@ namespace Level
         {
             _lastRoom = StartRoom;
             Count = Random.Range(MinCount, MaxCount);
-            Debug.Log($"Count = {Count}");
             List<NextRoom> rooms = Rooms;
             for (int i = 0; i < Count; i++)
             {
@@ -60,15 +59,13 @@ namespace Level
             }
 
             int r = Random.Range(0, maxCount);
-            Debug.Log($"r = {r}");
+            
             int k = 0;
             foreach (var room in rooms)
             {
                 k += room.Value; 
                 if (r <= k)
                 {
-                    Debug.Log($"Key = {room.Key}");
-
                     return room.Key;
                 }
             }

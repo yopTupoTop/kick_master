@@ -527,6 +527,7 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
   nextRoomPrefab: {fileID: -7227751897820317914, guid: 0d0cbad1f4d0cef46a64745206750146, type: 3}
+  ShopManager: {fileID: 520774908}
   ContinueButton: {fileID: 1663884489}
 --- !u!1 &218833311
 GameObject:
@@ -1225,9 +1226,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameItem: 
   priceItem: 0
-  allItem:
-  - {fileID: 1524863456}
-  - {fileID: 1644827578}
+  allItems:
+  - {fileID: 1524863461}
+  - {fileID: 1644827583}
 --- !u!1 &537502411
 GameObject:
   m_ObjectHideFlags: 0
@@ -3836,7 +3837,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1524863461}
-        m_TargetAssemblyTypeName: ItemManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: ItemManager, Money.ShopManager
         m_MethodName: BuyItem
         m_Mode: 1
         m_Arguments:
@@ -3898,7 +3899,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopManager: {fileID: 520774908}
-  nameItem: FirstLeg
+  nameItem: First
   priceItem: 100
   textItem: {fileID: 1251251539}
   isBuy: 0
@@ -6042,13 +6043,13 @@ MonoBehaviour:
     - Name: Rooms
       Entry: 7
       Data: 0|System.Collections.Generic.List`1[[Level.ScriptableObject.NextRoom,
-        Assembly-CSharp]], mscorlib
+        Level]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 1|Level.ScriptableObject.NextRoom, Assembly-CSharp
+      Data: 1|Level.ScriptableObject.NextRoom, Level
     - Name: Key
       Entry: 10
       Data: 0
