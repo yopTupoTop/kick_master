@@ -7,6 +7,6 @@ public class CheckEndGame : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<Player.Player>()) other.GetComponent<Player.Player>().EndGame();
+        if (other.GetComponent<PlayerController.PlayerController>()) other.GetComponent<PlayerController.PlayerController>().EndGame();
     }
 }

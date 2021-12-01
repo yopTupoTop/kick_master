@@ -18,12 +18,10 @@ public class HealthController : MonoBehaviour
             OnDead?.Invoke();
             IsDead = true;
         }
-
     }
 
     public static void HealthRecovery(int Health)
     {
         Health += 3;
     }
-
 }

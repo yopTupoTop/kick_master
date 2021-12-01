@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
-public class SettingMenu : MonoBehaviour
+public class SettingMenuController : MonoBehaviour
 {
     //public AudioMixer audioMixer;
 

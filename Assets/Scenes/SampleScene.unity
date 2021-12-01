@@ -526,9 +526,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-  nextRoomPrefab: {fileID: -7227751897820317914, guid: 0d0cbad1f4d0cef46a64745206750146, type: 3}
+  NextRoomPrefab: {fileID: -7227751897820317914, guid: 0d0cbad1f4d0cef46a64745206750146, type: 3}
   ShopManager: {fileID: 520774908}
-  ContinueButton: {fileID: 1663884489}
+  _continueButton: {fileID: 1663884489}
 --- !u!1 &218833311
 GameObject:
   m_ObjectHideFlags: 0
@@ -1145,7 +1145,7 @@ GameObject:
   - component: {fileID: 520774906}
   - component: {fileID: 520774908}
   m_Layer: 5
-  m_Name: Shop
+  m_Name: ShopView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1224,9 +1224,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 807b76f681d79ae4b874699afc6d01c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameItem: 
-  priceItem: 0
-  allItems:
+  NameItem: 
+  PriceItem: 0
+  AllItems:
   - {fileID: 1524863461}
   - {fileID: 1644827583}
 --- !u!1 &537502411
@@ -2001,7 +2001,7 @@ GameObject:
   m_Component:
   - component: {fileID: 896106337}
   m_Layer: 5
-  m_Name: Game
+  m_Name: JoystickModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2262,6 +2262,7 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
+  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2327,13 +2328,45 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.54, z: 0.01}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5400001, z: 0.0099999895}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2021802636}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &963194229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &965096763
 GameObject:
   m_ObjectHideFlags: 0
@@ -2454,7 +2487,7 @@ GameObject:
   - component: {fileID: 1084873831}
   - component: {fileID: 1084873830}
   m_Layer: 5
-  m_Name: Money
+  m_Name: MoneyView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3898,11 +3931,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a3bd7783d061bf41bfa237cae5713b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shopManager: {fileID: 520774908}
-  nameItem: First
-  priceItem: 100
-  textItem: {fileID: 1251251539}
-  isBuy: 0
+  ShopManager: {fileID: 520774908}
+  NameItem: FirstItem
+  PriceItem: 100
+  TextItem: {fileID: 1251251539}
+  IsBuy: 0
 --- !u!1 &1559295817
 GameObject:
   m_ObjectHideFlags: 0
@@ -4005,7 +4038,7 @@ GameObject:
   - component: {fileID: 1596425907}
   - component: {fileID: 1596425906}
   m_Layer: 5
-  m_Name: ReStartMenu
+  m_Name: ReStartMenuView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4252,11 +4285,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a3bd7783d061bf41bfa237cae5713b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shopManager: {fileID: 520774908}
-  nameItem: SecondLeg
-  priceItem: 200
-  textItem: {fileID: 1928007151}
-  isBuy: 0
+  ShopManager: {fileID: 520774908}
+  NameItem: SecondItem
+  PriceItem: 200
+  TextItem: {fileID: 1928007151}
+  IsBuy: 0
 --- !u!1 &1663884487
 GameObject:
   m_ObjectHideFlags: 0
@@ -4647,7 +4680,7 @@ GameObject:
   - component: {fileID: 1699377897}
   - component: {fileID: 1699377896}
   m_Layer: 5
-  m_Name: GameManager
+  m_Name: MainMenuView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5473,7 +5506,7 @@ GameObject:
   - component: {fileID: 1989357371}
   - component: {fileID: 1989357373}
   m_Layer: 5
-  m_Name: SettingsMenu
+  m_Name: SettingsMenuView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5848,7 +5881,7 @@ GameObject:
   - component: {fileID: 2021802637}
   - component: {fileID: 2021802639}
   m_Layer: 0
-  m_Name: player
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5964,13 +5997,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 890d5a7333238024f9d9d46441d11a0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthController: {fileID: 2021802639}
-  pointToForce: {fileID: 1967563936}
-  Force: 200
+  HealthController: {fileID: 2021802639}
+  PointToForce: {fileID: 1967563936}
+  Force: 0
   Joystick: {fileID: 583625587}
-  MoveSpeed: 1
+  MoveSpeed: 2
   Rigidbody: {fileID: 2021802637}
-  cube: {fileID: 537502411}
+  Cube: {fileID: 537502411}
   LegAnim: {fileID: 1448629947}
 --- !u!114 &2021802639
 MonoBehaviour:

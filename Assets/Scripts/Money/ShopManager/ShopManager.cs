@@ -8,58 +8,37 @@ using Sirenix.Utilities;
 
 public class ShopManager : MonoBehaviour
 {
+    [HideInInspector] public string NameItem;
+    [HideInInspector] public int PriceItem;
 
-    [HideInInspector]
-    public string nameItem;
-    [HideInInspector]
-    public int priceItem;
-    public PlayerPrefsSLM<MoneyManager> PlayerPrefsSLM;
+    public delegate void ReturnVoid(string nameItem, int price);
 
-    public delegate void OnBuy(string nameItem, int price);
-
-    public event OnBuy OnBuyEvent;
+    public event ReturnVoid OnBuy;
 
 
-    public ItemManager[] allItems;
+    public ItemManager[] AllItems;
 
-    public void Init(List<string> Items)
+    public void Init(List<string> items)
     {
-        
-        foreach (var Item in Items)
+        foreach (var item in items)
         {
-            Debug.Log($"{Item}");
-            foreach (var allItem in allItems)
+            Debug.Log($"{item}");
+            foreach (var allItem in AllItems)
             {
-                if (allItem.nameItem == Item)
+                if (allItem.NameItem == item)
                 {
-                    allItem.textItem.text = "Bought";
-                    allItem.isBuy = true;
+                    allItem.TextItem.text = "Bought";
+                    allItem.IsBuy = true;
                 }
             }
         }
     }
 
-    /*private void LoadGame()
-    {
-        dataPlayer = JsonUtility.FromJson<DataPlayer>(PlayerPrefs.GetString("SaveGame"));
-
-        for(var i = 0; i < dataPlayer.buyItem.Count; i++)
-        {
-            for (var j = 0; j < allItem.Length; j++)
-            {
-                
-               
-            }
-        }
-    }*/
-
     public void BuyItem()
     {
-        if (MoneyManager.Instance.Count >= priceItem)
+        if (MoneyManager.Instance.Count >= PriceItem)
         {
-            
-            OnBuyEvent?.Invoke(nameItem, priceItem);
-            
+            OnBuy?.Invoke(NameItem, PriceItem);
         }
         else
         {
@@ -69,15 +48,13 @@ public class ShopManager : MonoBehaviour
 
     public void ItemIsBrought(string nameItem)
     {
-        foreach (var allItem in allItems)
+        foreach (var allItem in AllItems)
         {
-            if (allItem.nameItem == nameItem)
+            if (allItem.NameItem == nameItem)
             {
-                allItem.textItem.text = "Bought";
-                allItem.isBuy = true;
+                allItem.TextItem.text = "Bought";
+                allItem.IsBuy = true;
             }
-            
-        } 
+        }
     }
-        
 }

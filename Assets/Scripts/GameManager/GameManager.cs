@@ -7,61 +7,59 @@ using SaveLoad;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public LevelManager LevelManager;
-    public Player.Player Player;
+    public PlayerController.PlayerController Player;
     public MoneyManager MoneyManager;
     public UnityEvent OnDeath;
-    public Room nextRoomPrefab;
-    public PlayerData dataPlayer;
+    public Room NextRoomPrefab;
+    public PlayerData DataPlayer;
     public ShopManager ShopManager;
 
-    [SerializeField] private Button ContinueButton;
-    private int health;
-    private PlayerPrefsSLM<PlayerData> PlayerPrefsSlm;
+    [SerializeField] private Button _continueButton;
+    private int _health;
+    private PlayerPrefsSLM<PlayerData> _playerPrefsSlm;
 
     private void Awake()
     {
-        
-        dataPlayer = new PlayerData();
-        PlayerPrefsSlm = new PlayerPrefsSLM<PlayerData>("DataPlayer");
-        if (PlayerPrefsSlm.HasPath())
+        DataPlayer = new PlayerData();
+        _playerPrefsSlm = new PlayerPrefsSLM<PlayerData>("DataPlayer");
+        if (_playerPrefsSlm.HasPath())
         {
-            dataPlayer = PlayerPrefsSlm.Load();
+            DataPlayer = _playerPrefsSlm.Load();
         }
         else
         {
-            dataPlayer.Money = 200;
+            DataPlayer.Money = 200;
         }
 
-        foreach (var b in dataPlayer.buyItem)
+        foreach (var b in DataPlayer.BuyItem)
         {
             Debug.Log(b);
         }
-        PlayerPrefsSlm.Save(dataPlayer);
-        MoneyManager.Init(dataPlayer.Money);
-        ShopManager.Init(dataPlayer.buyItem);
+
+        _playerPrefsSlm.Save(DataPlayer);
+        MoneyManager.Init(DataPlayer.Money);
+        ShopManager.Init(DataPlayer.BuyItem);
     }
 
     void Start()
     {
-        
         LevelManager.Spawn();
-        Player.OnEnd+=PlayerOnOnEnd;
+        Player.OnEnd += PlayerOnOnEnd;
         Player.OnDie += PlayerDeath;
         MoneyManager.OnChange += BuySomething;
-        ShopManager.OnBuyEvent += BuySomething;
-
+        ShopManager.OnBuy += BuySomething;
     }
 
     private void PlayerOnOnEnd()
     {
         MoneyManager.AddMoney(LevelManager.Count * 25);
         Debug.Log("OnEnd");
-
     }
 
     private void PlayerDeath()
@@ -69,9 +67,9 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0.01f;
         //PlayerOnOnEnd();
         OnDeath?.Invoke();
-        ContinueButton.GetComponent<Button>().interactable = MoneyManager.Count >= 200;
-        Debug.Log($"Death {MoneyManager.Count} >= 200 = {MoneyManager.Count >= 200}/n {ContinueButton.GetComponent<Button>().interactable}");
-
+        _continueButton.GetComponent<Button>().interactable = MoneyManager.Count >= 200;
+        Debug.Log(
+            $"Death {MoneyManager.Count} >= 200 = {MoneyManager.Count >= 200}/n {_continueButton.GetComponent<Button>().interactable}");
     }
 
     public void Restart()
@@ -85,34 +83,34 @@ public class GameManager : MonoBehaviour
         if (MoneyManager.Count >= 200)
         {
             Time.timeScale = 1f;
-            ContinueButton.GetComponent<Button>().interactable = true;
+            _continueButton.GetComponent<Button>().interactable = true;
             //LevelManager.Instantiate(nextRoomPrefab);
-            HealthController.HealthRecovery(health);
+            HealthController.HealthRecovery(_health);
             MoneyManager.Instance.RemoveMoney(200);
         }
     }
 
     public void BuySomething()
     {
-        dataPlayer.Money = MoneyManager.Count;
-        PlayerPrefsSlm.Save(dataPlayer);
+        DataPlayer.Money = MoneyManager.Count;
+        _playerPrefsSlm.Save(DataPlayer);
     }
 
     public void BuySomething(string nameItem, int priceItem)
     {
-        if (!dataPlayer.buyItem.Contains(nameItem))
+        if (!DataPlayer.BuyItem.Contains(nameItem))
         {
-            dataPlayer.buyItem.Add(nameItem);
+            DataPlayer.BuyItem.Add(nameItem);
             MoneyManager.Instance.RemoveMoney(priceItem);
         }
-        
+
         ShopManager.ItemIsBrought(nameItem);
-        
-        PlayerPrefsSlm.Save(dataPlayer);
+
+        _playerPrefsSlm.Save(DataPlayer);
     }
 
     private void OnDestroy()
     {
-        ShopManager.OnBuyEvent -= BuySomething;
+        ShopManager.OnBuy -= BuySomething;
     }
 }

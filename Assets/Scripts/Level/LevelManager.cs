@@ -8,17 +8,14 @@ namespace Level
 {
     public class LevelManager : SerializedMonoBehaviour
     {
-        [Required] [OdinSerialize]public List<NextRoom> Rooms;
+        [Required] [OdinSerialize] public List<NextRoom> Rooms;
         public int MinCount = 2, MaxCount = 5;
         public Room StartRoom;
         public Room EndRoomPrefab;
-        private List<Room> spawnedRoom = new List<Room>();
-        [Required] private Room _lastRoom;// по началу здесь будет стартовая комната. Настроена через инспектор
-        public int Count
-        {
-            private set;
-            get;
-        }
+        private List<Room> _spawnedRooms = new List<Room>();
+        [Required] private Room _lastRoom; // по началу здесь будет стартовая комната. Настроена через инспектор
+        public int Count { private set; get; }
+
         [Button("Spawn")]
         public void Spawn()
         {
@@ -31,16 +28,19 @@ namespace Level
                 rooms = roomSo.NextRooms;
                 this.Instantiate(roomSo.Prefab);
             }
+
             this.Instantiate(EndRoomPrefab);
         }
+
         [Button("ReSpawn")]
         public void ReSpawn()
         {
-            foreach (Room room in spawnedRoom)
+            foreach (Room room in _spawnedRooms)
             {
                 Destroy(room.gameObject);
             }
-            spawnedRoom.Clear();
+
+            _spawnedRooms.Clear();
             Spawn();
         }
 
@@ -48,8 +48,9 @@ namespace Level
         {
             Room room = Instantiate(nextRoomPrefab, _lastRoom.NextRoomTransform.position, Quaternion.identity);
             _lastRoom = room;
-            spawnedRoom.Add(_lastRoom);
+            _spawnedRooms.Add(_lastRoom);
         }
+
         public RoomSO GetRoomSO(List<NextRoom> rooms)
         {
             int maxCount = 0;
@@ -59,16 +60,17 @@ namespace Level
             }
 
             int r = Random.Range(0, maxCount);
-            
+
             int k = 0;
             foreach (var room in rooms)
             {
-                k += room.Value; 
+                k += room.Value;
                 if (r <= k)
                 {
                     return room.Key;
                 }
             }
+
             Debug.LogError($"Key not found");
 
             return null;

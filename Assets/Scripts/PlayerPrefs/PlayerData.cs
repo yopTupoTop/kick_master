@@ -5,6 +5,6 @@ namespace SaveLoad
     public class PlayerData
     {
         public int Money;
-        public List<string> buyItem = new List<string>();
+        public List<string> BuyItem = new List<string>();
     }
 }

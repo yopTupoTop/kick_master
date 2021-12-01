@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class MoneyManagerUI : MonoBehaviour
 {
-
     public Text MoneyText;
     public MoneyManager MoneyManager;
 

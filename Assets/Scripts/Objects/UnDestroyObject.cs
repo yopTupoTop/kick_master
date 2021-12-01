@@ -13,7 +13,7 @@ public class UnDestroyObject : SpawnObject
 
     public override void Kick(Vector3 force)
     {
-        if (isEnable)
+        if (IsEnable)
         {
             Debug.Log(name);
             Rigidbody.AddForce(force * Force);
@@ -23,7 +23,6 @@ public class UnDestroyObject : SpawnObject
     private void Update()
     {
         IsFlying = (Rigidbody.velocity.magnitude > MinSpeed);
-            
     }
 
     private void OnCollisionEnter(Collision collision)

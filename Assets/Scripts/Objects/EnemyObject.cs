@@ -9,15 +9,15 @@ namespace Objects
         public RagdollController RagdollController;
         public CharacterController CharacterController;
         public Animator Animator;
-        [Range(0,1f)]public float MinForce, MaxForce;
+        [Range(0, 1f)] public float MinForce, MaxForce;
         public float PrefixForse = 0.5f;
         public Vector3 Force;
 
         private void Awake()
         {
-            foreach (Rigidbody rig in RagdollController.Rigidbodies)
+            foreach (Rigidbody rigidbody in RagdollController.Rigidbodies)
             {
-                rig.GetComponent<SpawnObject>().isEnable = false;
+                rigidbody.GetComponent<SpawnObject>().IsEnable = false;
             }
         }
 
@@ -27,10 +27,10 @@ namespace Objects
             RagdollController.Enable();
             Animator.enabled = false;
             CharacterController.enabled = false;
-            foreach (Rigidbody rig in RagdollController.Rigidbodies)
+            foreach (Rigidbody rigidbody in RagdollController.Rigidbodies)
             {
-                rig.AddForce(force * (Random.Range(MinForce, MaxForce) * PrefixForse));
-                rig.GetComponent<SpawnObject>().isEnable = true;
+                rigidbody.AddForce(force * (Random.Range(MinForce, MaxForce) * PrefixForse));
+                rigidbody.GetComponent<SpawnObject>().IsEnable = true;
             }
         }
 

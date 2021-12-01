@@ -16,7 +16,7 @@ public class DestroyObject : SpawnObject
         DestroyedObject.transform.position = NormalObject.transform.position;
         foreach (SpawnObject spawn in Objects)
         {
-            if(isEnable) spawn.Kick(force);
+            if (IsEnable) spawn.Kick(force);
         }
     }
 }

@@ -5,23 +5,23 @@ using UnityEngine.UI;
 
 public class ItemManager : MonoBehaviour
 {
-    public ShopManager shopManager;
+    public ShopManager ShopManager;
 
-    public string nameItem;
-    public int priceItem;
+    public string NameItem;
+    public int PriceItem;
 
-    public Text textItem;
+    public Text TextItem;
 
-    public bool isBuy;
+    public bool IsBuy;
 
     public void BuyItem()
     {
-        if (!isBuy)
+        if (!IsBuy)
         {
-            shopManager.nameItem = nameItem;
-            shopManager.priceItem = priceItem;
+            ShopManager.NameItem = NameItem;
+            ShopManager.PriceItem = PriceItem;
 
-            shopManager.BuyItem();
+            ShopManager.BuyItem();
         }
     }
 }

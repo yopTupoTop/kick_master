@@ -23,7 +23,6 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySound(AudioClip clip)
     {
-
     }
 
     public void ChangeMasterVolume(float value)

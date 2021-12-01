@@ -11,9 +11,10 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] protected string Walk;
     [SerializeField] protected string OnAttack;
     [SerializeField] protected string Throw;
+
     public virtual void Update()
     {
-        if (Vector3.Distance(transform.position, Player.Player.Instance.transform.position) < Radius)
+        if (Vector3.Distance(transform.position, PlayerController.PlayerController.Instance.transform.position) < Radius)
         {
             _isAttack = true;
         }

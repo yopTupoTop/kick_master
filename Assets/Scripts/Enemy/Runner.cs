@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class Runner : Enemy
 {
-    [Header("Runner Settings"), Space(5)]
-    public float AttackRadius;
+    [Header("Runner Settings"), Space(5)] public float AttackRadius;
 
-    public GameObject cube;
+    public GameObject Cube;
     public int Damage;
 
     public override void Attack()
     {
-        if (Vector3.Distance(Player.Player.Instance.transform.position, transform.position) <= AttackRadius)
+        if (Vector3.Distance(PlayerController.PlayerController.Instance.transform.position, transform.position) <= AttackRadius)
         {
             Animator.SetBool(OnAttack, true);
             Animator.SetBool(Walk, false);
@@ -21,7 +20,7 @@ public class Runner : Enemy
         {
             Animator.SetBool(OnAttack, false);
             Animator.SetBool(Walk, true);
-            transform.LookAt(GetYVector(Player.Player.Instance.transform.position, transform.position.y));
+            transform.LookAt(GetYVector(PlayerController.PlayerController.Instance.transform.position, transform.position.y));
         }
     }
 
@@ -32,18 +31,17 @@ public class Runner : Enemy
 
     public void IsAttacked()
     {
-        var transform1 = cube.transform;
+        var transform1 = Cube.transform;
         Collider[] colliders = Physics.OverlapBox(transform1.position, transform1.localScale / 2, transform1.rotation);
         foreach (Collider collider1 in colliders)
         {
-            Player.Player player = collider1.GetComponent<Player.Player>();
+            PlayerController.PlayerController player = collider1.GetComponent<PlayerController.PlayerController>();
             if (player)
             {
                 Debug.Log($"Plyer {player}");
                 HealthController healthController = collider1.GetComponent<HealthController>();
                 if (healthController)
                     healthController.Damage(Damage);
-
             }
         }
     }

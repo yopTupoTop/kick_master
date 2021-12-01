@@ -4,7 +4,7 @@ namespace Objects
 {
     public abstract class SpawnObject : MonoBehaviour
     {
-        public bool isEnable = true;
+        public bool IsEnable = true;
         public abstract void Kick(Vector3 force);
     }
 }

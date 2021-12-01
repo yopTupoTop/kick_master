@@ -4,7 +4,6 @@ namespace SaveLoad
 {
     public class PlayerPrefsSLM<T> : SaveLoadManager<T>
     {
-
         public override void Save(T value)
         {
             PlayerPrefs.SetString(_path, JsonUtility.ToJson(value));
@@ -26,4 +25,3 @@ namespace SaveLoad
         }
     }
 }
-
