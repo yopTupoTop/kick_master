@@ -29,7 +29,7 @@ namespace PlayerController
         private void Awake()
         {
             _instance = this;
-            HealthController.OnDead.AddListener(Death);
+            HealthController.OnDead.AddListener(Die);
         }
 
         public void EndGame()
@@ -73,7 +73,7 @@ namespace PlayerController
             }
         }
 
-        public void Death()
+        public void Die()
         {
             OnDie?.Invoke();
             Debug.Log("Dead");

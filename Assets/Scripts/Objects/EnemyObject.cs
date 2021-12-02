@@ -34,7 +34,7 @@ namespace Objects
             }
         }
 
-        public void Death()
+        public void EnemyDie()
         {
             Kick(Force);
         }

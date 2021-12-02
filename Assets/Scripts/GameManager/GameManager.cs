@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
     {
         LevelManager.Spawn();
         Player.OnEnd += PlayerOnOnEnd;
-        Player.OnDie += PlayerDeath;
+        Player.OnDie += PlayerOnDeath;
         MoneyManager.OnChange += BuySomething;
         ShopManager.OnBuy += BuySomething;
     }
@@ -62,14 +62,14 @@ public class GameManager : MonoBehaviour
         Debug.Log("OnEnd");
     }
 
-    private void PlayerDeath()
+    private void PlayerOnDeath()
     {
         Time.timeScale = 0.01f;
         //PlayerOnOnEnd();
         OnDeath?.Invoke();
         _continueButton.GetComponent<Button>().interactable = MoneyManager.Count >= 200;
         Debug.Log(
-            $"Death {MoneyManager.Count} >= 200 = {MoneyManager.Count >= 200}/n {_continueButton.GetComponent<Button>().interactable}");
+            $"Die {MoneyManager.Count} >= 200 = {MoneyManager.Count >= 200}/n {_continueButton.GetComponent<Button>().interactable}");
     }
 
     public void Restart()
